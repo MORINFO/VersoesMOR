@@ -13,12 +13,7 @@ export default class VersoesController {
 
   async store({ request }: HttpContextContract) {
     try {
-      const dados = request.only([
-        'empresa',
-        'versaofaturamento',
-        'versaofinanceiro',
-        'versaocompras',
-      ])
+      const dados = request.only(['empresa', 'faturamento', 'financeiro', 'compras'])
 
       let pesquisaEmpresa = await Versao.findBy('empresa', dados.empresa)
 

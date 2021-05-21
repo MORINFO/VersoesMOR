@@ -9,13 +9,13 @@ export default class Versoes extends BaseModel {
   public empresa: string
 
   @column()
-  public versaofaturamento: string
+  public faturamento: string
 
   @column()
-  public versaofinanceiro: string
+  public financeiro: string
 
   @column()
-  public versaocompras: string
+  public compras: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

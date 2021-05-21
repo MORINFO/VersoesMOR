@@ -7,9 +7,9 @@ export default class Versoes extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('codigo')
       table.string('empresa').notNullable().unique()
-      table.string('versaofaturamento').defaultTo(0)
-      table.string('versaofinanceiro').defaultTo(0)
-      table.string('versaocompras').defaultTo(0)
+      table.string('faturamento').defaultTo(0)
+      table.string('financeiro').defaultTo(0)
+      table.string('compras').defaultTo(0)
       table.timestamps(true)
     })
   }
