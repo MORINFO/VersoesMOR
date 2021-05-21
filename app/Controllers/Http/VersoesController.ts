@@ -11,7 +11,7 @@ export default class VersoesController {
     return versoes
   }
 
-  async store({ request, params }: HttpContextContract) {
+  async store({ request }: HttpContextContract) {
     try {
       const dados = request.only([
         'empresa',
