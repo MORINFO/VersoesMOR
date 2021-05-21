@@ -3,7 +3,7 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Versoes extends BaseModel {
   @column({ isPrimary: true })
-  public Codigo: number
+  public codigo: number
 
   @column()
   public empresa: string
