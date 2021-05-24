@@ -1,2 +1,2 @@
-release: node build/ace migration:run --force
+release: node build/ace 
 web: yarn start
