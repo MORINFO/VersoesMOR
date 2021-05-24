@@ -3,10 +3,8 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Versao from 'App/Models/Versoes'
 
 export default class VersoesController {
-  async index({}: HttpContextContract) {
+  async index({ }: HttpContextContract) {
     const versoes = await Versao.all()
-
-    console.log(versoes)
 
     return versoes
   }
@@ -30,7 +28,7 @@ export default class VersoesController {
     }
   }
 
-  async show({}: HttpContextContract) {}
+  async show({ }: HttpContextContract) { }
 
-  async update({}: HttpContextContract) {}
+  async update({ }: HttpContextContract) { }
 }
