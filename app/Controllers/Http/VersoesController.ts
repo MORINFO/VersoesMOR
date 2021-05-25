@@ -28,7 +28,6 @@ export default class VersoesController {
             .subject('Aviso de Atualização Sistema MOR')
             .htmlView('emails/welcome', { dados })
         })
-        console.log('aki')
         return
       }
       await Versao.create(dados)
@@ -41,7 +40,6 @@ export default class VersoesController {
           .htmlView('emails/welcome', { dados })
       })
 
-      console.log('aki 2')
       return
     } catch (error) {
       return response.send(error)
