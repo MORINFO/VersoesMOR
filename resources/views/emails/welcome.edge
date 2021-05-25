@@ -150,9 +150,13 @@
                       <div
                         style="font-family:Roboto, Helvetica, sans-serif;font-size:16px;font-weight:300;line-height:24px;text-align:left;color:#616161;">
                         <p>Sistema da empresa {{dados.empresa}} esta com as seguintes versões:</p>
-                        <p>Faturamento:{{ dados.faturamento ? dados.faturamento : "0" }}</p>
-                        <p>Financeiro: {{ dados.financeiro ? dados.financeiro : "0" }}</p>
-                        <p>Compras: {{ dados.compras ? dados.compras : "0" }}</p>
+                        @if(dados.faturamento)
+                        <p>Faturamento {{dados.faturamento }}</p>
+                        @elseif(dados.financeiro)
+                        <p>Financeiro {{ dados.financeiro }}</p>
+                        @elseif(dados.compras)
+                        <p>Compras: {{dados.compras}}</p>
+                        @end
                       </div>
                     </td>
                   </tr>
