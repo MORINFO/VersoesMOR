@@ -34,7 +34,7 @@ export default class VersoesController {
       await Mail.sendLater((message) => {
         message
           .from('suporte@morinfo.com.br')
-          .to('suporte@morinfo.com.br')
+          .to('suporte@morinfo.com.br') 
           .cc('nicolas@morinfo.com.br', 'ronaldo@morinfo.com.br')
           .subject('Aviso de Atualização Sistema MOR')
           .htmlView('emails/welcome', { dados })
