@@ -26,7 +26,7 @@ export default class VersoesController {
             .to('suporte@morinfo.com.br')
             .cc('nicolas@morinfo.com.br', 'ronaldo@morinfo.com.br')
             .subject('Aviso de Atualização Sistema MOR')
-            .htmlView('emails/welcome', { dados })
+            .htmlView('emails/email', { dados })
         })
         return
       }
@@ -37,7 +37,7 @@ export default class VersoesController {
           .to('suporte@morinfo.com.br')
           .cc('nicolas@morinfo.com.br', 'ronaldo@morinfo.com.br')
           .subject('Aviso de Atualização Sistema MOR')
-          .htmlView('emails/welcome', { dados })
+          .htmlView('emails/email', { dados })
       })
 
       return
