@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Env from '@ioc:Adonis/Core/Env'
 import Mail from '@ioc:Adonis/Addons/Mail'
 import Versao from 'App/Models/Versoes'
 
@@ -23,9 +22,9 @@ export default class VersoesController {
 
         await Mail.sendLater((message) => {
           message
-            .from(Env.get('EMAIL_FROM'))
-            .to(Env.get('EMAIL_TO'))
-            .cc(Env.get('EMAIL_CC'))
+            .from('morinfo@morinfo.com.br')
+            .to('suporte@morinfo.com.br')
+            .cc('nicolas@morinfo.com.br', 'ronaldo@morinfo.com.br')
             .subject('Aviso de Atualização Sistema MOR')
             .htmlView('emails/welcome', { dados })
         })
@@ -34,12 +33,13 @@ export default class VersoesController {
       await Versao.create(dados)
       await Mail.sendLater((message) => {
         message
-          .from(Env.get('EMAIL_FROM'))
-          .to(Env.get('EMAIL_TO'))
-          .cc(Env.get('EMAIL_CC'))
+          .from('suporte@morinfo.com.br')
+          .to('suporte@morinfo.com.br')
+          .cc('nicolas@morinfo.com.br', 'ronaldo@morinfo.com.br')
           .subject('Aviso de Atualização Sistema MOR')
           .htmlView('emails/welcome', { dados })
       })
+
       return
     } catch (error) {
       return response.send(error)
