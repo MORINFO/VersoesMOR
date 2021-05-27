@@ -28,7 +28,7 @@ export default class VersoesController {
       let desatualizado = await Database
         .from('versoes')
         .select('empresa', `${consulta.sistema} AS versao`)
-        .where(consulta.sistema, '<>', consulta.versao)
+        .where(consulta.sistema, '<', consulta.versao)
 
       if (desatualizado) {
         await Mail.sendLater((message) => {
