@@ -140,7 +140,7 @@
       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
         <tbody>
           <tr>
-            <td style="direction:ltr;font-size:0px;padding:0px;padding-top:30px;text-align:center;">
+            <td style="direction:ltr;font-size:0px;padding:0px;padding-top:15px;text-align:center;">
               <div class="mj-column-per-100 mj-outlook-group-fix"
                 style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;"
@@ -151,7 +151,7 @@
                         style="font-family:Roboto, Helvetica, sans-serif;font-size:16px;font-weight:300;line-height:24px;text-align:left;color:#616161;">
                         <p>Empresas com o sistema {{sistema}} desatualizado: </p>
                         @each(desatualizados in desatualizado)
-                        <li>{{ desatualizados.empresa }} Versão: {{ desatualizados.versao }} </li>
+                        <li>{{ desatualizados.empresa }} || Versão: {{ desatualizados.versao }} </li>
                         @end
                       </div>
                     </td>
