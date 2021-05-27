@@ -25,6 +25,17 @@ export default class VersoesController {
         versao: dados.faturamento && dados.faturamento || dados.financeiro && dados.financeiro || dados.compras && dados.compras
       }
 
+
+      if (pesquisaEmpresa) {
+        pesquisaEmpresa.merge(dados)
+
+        await pesquisaEmpresa.save()
+
+      } else {
+        await Versao.create(dados)
+
+      }
+
       let desatualizado = await Database
         .from('versoes')
         .select('empresa', `${consulta.sistema} AS versao`)
@@ -37,20 +48,9 @@ export default class VersoesController {
             .to('suporte@morinfo.com.br')
             .cc('nicolas@morinfo.com.br', 'ronaldo@morinfo.com.br')
             .subject('Aviso de Empresas desatualizadas')
-            .htmlView('emails/email', { desatualizado, sistema: consulta.sistema})
+            .htmlView('emails/email', { desatualizado, sistema: consulta.sistema })
         })
 
-      }
-
-      if (pesquisaEmpresa) {
-        pesquisaEmpresa.merge(dados)
-
-        await pesquisaEmpresa.save()
-
-      } else {
-        await Versao.create(dados)
-
-        return
       }
 
     } catch (error) {
