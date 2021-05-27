@@ -40,7 +40,7 @@ export default class VersoesController {
         .from('versoes')
         .select('empresa', `${consulta.sistema} AS versao`)
         .where(consulta.sistema, '<', consulta.versao)
-        .orWhere(consulta.sistema, '>', 0)
+        .andWhere(consulta.sistema, '>', 0)
 
       if (desatualizado) {
         await Mail.sendLater((message) => {
