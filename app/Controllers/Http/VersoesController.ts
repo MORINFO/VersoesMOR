@@ -42,7 +42,7 @@ export default class VersoesController {
         .where(consulta.sistema, '<', consulta.versao)
         .andWhere(consulta.sistema, '>', 0)
 
-      if (desatualizado) {
+      if (desatualizado.length > 0) {
         await Mail.sendLater((message) => {
           message
             .from('morinfo@morinfo.com.br')
