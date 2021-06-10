@@ -8,6 +8,9 @@ export default class Backups_clientes extends BaseModel {
   @column()
   public empresa: string
 
+  @column()
+  public horario: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

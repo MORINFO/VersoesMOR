@@ -7,6 +7,7 @@ export default class Bkps extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('empresa', 50).defaultTo('')
+      table.string('horario', 50).defaultTo('')
 
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL

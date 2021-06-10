@@ -5,22 +5,23 @@ export default class BkpsController {
 
   public async store({ request, response }: HttpContextContract) {
 
-    const empresa = request.all()
-
     try {
-      const pesquiaEmpresa = await Backups_clientes.findBy('empresa', empresa)
+      const dados = request.all()
 
-      if (!pesquiaEmpresa) {
+      let pesquiaEmpresa = await Backups_clientes.findBy('empresa', dados.empresa)
 
-        await Backups_clientes.create(empresa)
+      if (pesquiaEmpresa) {
+
+        pesquiaEmpresa.merge(dados)
+        await pesquiaEmpresa.save()
+
         return
       }
 
-      console.log(empresa)
-      pesquiaEmpresa.merge(empresa)
-      await pesquiaEmpresa.save()
+      await Backups_clientes.create(dados)
 
       return
+
     } catch (error) {
       return response.status(500).send(error)
     }
