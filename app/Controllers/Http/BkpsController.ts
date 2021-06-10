@@ -15,12 +15,12 @@ export default class BkpsController {
         pesquiaEmpresa.merge(dados)
         await pesquiaEmpresa.save()
 
-        return
+        return response.send({Mensagem: "Serviço de BKP MOR"})
       }
 
       await Backups_clientes.create(dados)
 
-      return
+      return response.send({Mensagem: "Serviço de BKP MOR"})
 
     } catch (error) {
       return response.status(500).send(error)
